@@ -7,10 +7,14 @@ let fs = require('fs');
  * @module Capella module. Upload file and return response from server
  * @copyright CodeX Team 2018
  */
+class Capella {
 
-module.exports = function (capellaSDK) {
-
-  let getAnswer = function (json) {
+  /**
+   *
+   * @param {String} - json json string with server answer
+   * @return {any | *} - json or string with error
+   */
+  getAnswer (json) {
     try {
       json = JSON.parse(json);
 
@@ -34,14 +38,13 @@ module.exports = function (capellaSDK) {
    * @param {String} - imagePath local path to image
    * @param {Function} - callback action after upload picture
    */
-  capellaSDK.uploadFile = function (imagePath, callback) {
+  uploadFile (imagePath, callback) {
     try {
-      let req = request.post('https://capella.pics/upload', function (error, resp, body) {
-
+      let req = request.post('https://capella.pics/upload', (error, resp, body) => {
         if (error != null) {
           throw error;
         }
-        callback(getAnswer(body));
+        callback(this.getAnswer(body));
       });
       let form = req.form();
       form.append('file', fs.createReadStream(imagePath));
@@ -59,13 +62,13 @@ module.exports = function (capellaSDK) {
    * @param {String} - URL url path to image
    * @param {Function} - callback action after upload picture
    */
-  capellaSDK.uploadFileByURL = function (URL, callback) {
+  uploadFileByURL (URL, callback) {
     try {
-      let req = request.post('https://capella.pics/upload', function (error, resp, body) {
+      let req = request.post('https://capella.pics/upload', (error, resp, body) => {
         if (error != null) {
           throw error;
         }
-        callback(getAnswer(body));
+        callback(this.getAnswer(body));
       });
       let form = req.form();
       form.append('link', URL);
@@ -75,5 +78,6 @@ module.exports = function (capellaSDK) {
     }
   };
 
-  return capellaSDK;
-}({});
+}
+
+module.exports = Capella;
