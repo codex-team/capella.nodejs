@@ -1,6 +1,5 @@
 let request = require('request');
 let fs = require('fs');
-let https = require('https');
 
 /**
  * Capella upload module
@@ -39,33 +38,14 @@ module.exports = function (capellaSDK) {
    * @param {Function} callback action after upload picture
    */
   capellaSDK.uploadImageToCapellaURL = function (URL, callback) {
-
-    let tempPath = __dirname + '/Temp/' + getHash(URL);
-
-    let stream = request.get(URL).on('error', function (error) {
-      return error;
-    }).pipe(fs.createWriteStream(tempPath, function (error) {
-      return error;
-    }));
-    stream.on('finish', function () {
-      capellaSDK.uploadImageToCapella(tempPath, function (err, resp, body) {
-        callback(err, resp, body);
-        fs.unlink(tempPath, function (error) {
-          return error;
-        });
-      });
-    });
-  };
-
-  let getHash = function (str) {
-    var hash = 0;
-    if (str.length == 0) return hash;
-    for (i = 0; i < str.length; i++) {
-      char = str.charCodeAt(i);
-      hash = ((hash << 5) - hash) + char;
-      hash = hash & hash; // Convert to 32bit integer
+    try {
+      let req = request.post('https://capella.pics/upload', callback);
+      let form = req.form();
+      form.append('link', URL);
     }
-    return hash;
+    catch (exception) {
+      return exception;
+    }
   };
 
   return capellaSDK;
