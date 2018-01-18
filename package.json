@@ -1,0 +1,25 @@
+{
+  "name": "capellasdk",
+  "version": "1.0.0",
+  "description": "Capella SDK for Node.js",
+  "main": "src/capellaSDK.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codex-team/capella.nodejs.git"
+  },
+  "keywords": [
+    "capella"
+  ],
+  "author": "https://ifmo.su",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/codex-team/capella.nodejs/issues"
+  },
+  "homepage": "https://github.com/codex-team/capella.nodejs#readme",
+  "dependencies": {
+    "request": "^2.83.0"
+  }
+}
