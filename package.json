@@ -1,8 +1,8 @@
 {
-  "name": "capellasdk",
+  "name": "capella-pics",
   "version": "1.0.0",
-  "description": "Capella SDK for Node.js",
-  "main": "src/capellaSDK.js",
+  "description": "Module for useful image uploading with capella.pics",
+  "main": "src/capella.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -11,9 +11,11 @@
     "url": "git+https://github.com/codex-team/capella.nodejs.git"
   },
   "keywords": [
-    "capella"
+    "image-uploading",
+    "uploader",
+    "image-filters"
   ],
-  "author": "https://ifmo.su",
+  "author": "CodeX (https://ifmo.su)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/codex-team/capella.nodejs/issues"
