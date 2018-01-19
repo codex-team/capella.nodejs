@@ -23,16 +23,12 @@ class Capella {
    * @return {object|string} - parsed response or error message
    */
     parseResponse(json) {
-        try {
-            json = JSON.parse(json);
+        json = JSON.parse(json);
 
-            if (json.success == false) {
-                return json.message;
-            } else {
-                return json;
-            }
-        } catch (exception) {
-            throw exception;
+        if (json.success == false) {
+            return json.message;
+        } else {
+            return json;
         }
     };
 

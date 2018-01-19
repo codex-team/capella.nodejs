@@ -5,9 +5,9 @@ Image uploader to [Capella](https://github.com/codex-team/capella)
 ## Usage
 
 ```js
-let capella = require('capella-pics');
+let Capella = require('capella-pics');
 
-capella = new capella;
+capella = new Capella();
 
 //upload by URL
 capella.uploadFileByURL('https://capella.pics/public/app/svg/capella-logo.svg', (resp) => {
@@ -20,8 +20,9 @@ capella.uploadFile('C:/Users/Capella/Desktop/svg/capella-logo.svg', (resp) => {
 });
 ```
 
-## Response
-Return string error if operation failed or [capella response](https://github.com/codex-team/capella#upload-api) if all was successful
+## Describe callback function
+Return Capella response [Describe Response object here](https://github.com/codex-team/capella#upload-api) object if everything is ok, otherwise returns Error message.
 
 ## Exceptions
-If you have not valid path, not valid internet connection and etc. you get exception 
+Exception will be thrown in cases of invalid file, inactive internet connection etc.
+
