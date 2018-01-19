@@ -41,6 +41,7 @@ class Capella {
     createRequest(callback) {
         let req = request.post(this.endpoint, (error, resp, body) => {
             if (error != null) {
+                error = error.code + ' ' + error.message;
                 callback(error);
                 return;
             }
@@ -49,7 +50,7 @@ class Capella {
             try {
                 response = this.parseResponse(body);
             } catch (exception) {
-                response = exception;
+                response = 'Invalid JSON';
             }
             callback(response);
         });
