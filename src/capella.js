@@ -9,12 +9,17 @@ let fs = require('fs');
  */
 class Capella {
 
+  constructor ()
+  {
+    this.CAPELLA_UPLOAD_LINK = 'https://capella.pics/upload';
+  }
   /**
+   * Get and parse answer from server
    *
-   * @param {String} - json json string with server answer
-   * @return {any | *} - json or string with error
+   * @param {String} - json JSON string with the server response
+   * @return {object|string} - parsed response or error message
    */
-  getAnswer (json) {
+  parseResponse (json) {
     try {
       json = JSON.parse(json);
 
@@ -31,6 +36,23 @@ class Capella {
   };
 
   /**
+   * Create request for post image to Capella
+   *
+   * @param callback - callback action after upload picture
+   * @return {Function} - request query
+   */
+  createRequest(callback)
+  {
+    let req = request.post(this.CAPELLA_UPLOAD_LINK, (error, resp, body) => {
+      if (error != null) {
+        throw error;
+      }
+      callback(this.parseResponse(body));
+    });
+    return req;
+  }
+
+  /**
    * Use Capella API for the image uploading
    *
    * {@link https://github.com/codex-team/capella}
@@ -39,19 +61,9 @@ class Capella {
    * @param {Function} - callback action after upload picture
    */
   uploadFile (imagePath, callback) {
-    try {
-      let req = request.post('https://capella.pics/upload', (error, resp, body) => {
-        if (error != null) {
-          throw error;
-        }
-        callback(this.getAnswer(body));
-      });
+      let req = this.createRequest(callback)
       let form = req.form();
       form.append('file', fs.createReadStream(imagePath));
-    }
-    catch (exception) {
-      throw  exception;
-    }
   };
 
   /**
@@ -63,19 +75,10 @@ class Capella {
    * @param {Function} - callback action after upload picture
    */
   uploadFileByURL (URL, callback) {
-    try {
-      let req = request.post('https://capella.pics/upload', (error, resp, body) => {
-        if (error != null) {
-          throw error;
-        }
-        callback(this.getAnswer(body));
-      });
-      let form = req.form();
-      form.append('link', URL);
-    }
-    catch (exception) {
-      throw exception;
-    }
+    let req = this.createRequest(callback)
+    let form = req.form();
+    form.append('link', URL);
+
   };
 
 }
