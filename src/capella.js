@@ -35,13 +35,31 @@ class Capella {
     /**
    * Create request for post image to Capella
    *
-   * @param callback - callback action after upload picture
+   * Callback argument description
+   * On error
+   * {
+   *    "success": false,
+   *    "message": <message>
+   * }
+   * On success
+   * {
+   *    "success": true,
+   *    "message": <message>,
+   *    "id": <id>,
+   *    "url": <url>
+   * }
+   *
+   * @param {Function} callback - callback action after upload picture.
+   * Callback argument has format
    * @return {Function} - request query
    */
     createRequest(callback) {
         let req = request.post(this.endpoint, (error, resp, body) => {
             if (error != null) {
-                error = error.code + ' ' + error.message;
+                error = {
+                    'success':false,
+                    'message':error.code + ' ' + error.message
+                };
                 callback(error);
                 return;
             }
@@ -50,7 +68,10 @@ class Capella {
             try {
                 response = this.parseResponse(body);
             } catch (exception) {
-                response = 'Invalid JSON';
+                response = {
+                    'success':false,
+                    'message':'Invalid JSON format'
+                };
             }
             callback(response);
         });
