@@ -10,19 +10,15 @@ let Capella = require('capella-pics');
 capella = new Capella();
 
 //upload by URL
-capella.uploadFileByURL('https://capella.pics/public/app/svg/capella-logo.svg', function (resp) {
+capella.uploadFileByURL('https://capella.pics/public/app/svg/capella-logo.png', function (resp) {
     console.log(resp);
 });
 
 //upload by local path
-capella.uploadFile('C:/Users/Capella/Desktop/svg/capella-logo.svg', function (resp) {
+capella.uploadFile('C:/Users/Capella/Desktop/svg/capella-logo.png', function (resp) {
     console.log(resp);
 });
 ```
 
 ## Response
-Return Capella response [Describe Response object here](https://github.com/codex-team/capella#upload-api) object if everything is ok, otherwise returns Error message.
-
-## Exceptions
-Exception will be thrown in cases of invalid file, inactive internet connection etc.
-
+Return [Capella response](https://github.com/codex-team/capella#upload-api) object if everything is ok, otherwise returns Error message.

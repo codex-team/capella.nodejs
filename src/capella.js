@@ -19,7 +19,7 @@ class Capella {
     /**
    * Get and parse answer from server
    *
-   * @param {String} json - json JSON string with the server response
+   * @param {String} json - JSON string with the server response
    * @return {object|string} - parsed response or error message
    */
     parseResponse(json) {
@@ -41,7 +41,8 @@ class Capella {
     createRequest(callback) {
         let req = request.post(this.endpoint, (error, resp, body) => {
             if (error != null) {
-                throw error;
+                callback(error);
+                return;
             }
             let response;
 
@@ -61,8 +62,8 @@ class Capella {
    *
    * {@link https://github.com/codex-team/capella}
    *
-   * @param {String} - imagePath local path to image
-   * @param {Function} - callback action after upload picture
+   * @param {String} imagePath - local path to image
+   * @param {Function} callback - action after upload picture
    */
     uploadFile(imagePath, callback) {
         let req = this.createRequest(callback);
@@ -76,8 +77,8 @@ class Capella {
    *
    * {@link https://github.com/codex-team/capella}
    *
-   * @param {String} - URL url path to image
-   * @param {Function} - callback action after upload picture
+   * @param {String} URL - URL url path to image
+   * @param {Function} callback - action after upload picture
    */
     uploadFileByURL(URL, callback) {
         let req = this.createRequest(callback);
