@@ -43,8 +43,13 @@ class Capella {
             if (error != null) {
                 throw error;
             }
-            let response = this.parseResponse(body);
+            let response;
 
+            try {
+                response = this.parseResponse(body);
+            } catch (exception) {
+                response = exception;
+            }
             callback(response);
         });
 
