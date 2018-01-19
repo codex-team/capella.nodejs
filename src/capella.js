@@ -13,6 +13,7 @@ class Capella {
   {
     this.CAPELLA_UPLOAD_LINK = 'https://capella.pics/upload';
   }
+  
   /**
    * Get and parse answer from server
    *
@@ -78,9 +79,7 @@ class Capella {
     let req = this.createRequest(callback)
     let form = req.form();
     form.append('link', URL);
-
   };
-
 }
 
 module.exports = Capella;
