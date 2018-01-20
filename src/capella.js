@@ -70,7 +70,7 @@ class Capella {
             } catch (exception) {
                 response = {
                     'success': false,
-                    'message': 'Invalid JSON format'
+                    'message': 'Incorrect response from Capella'
                 };
             }
             callback(response);
