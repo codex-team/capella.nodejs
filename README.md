@@ -2,6 +2,12 @@
 
 Image uploader to [Capella](https://github.com/codex-team/capella)
 
+## Installation
+
+```
+$ npm install capella-pics
+```
+
 ## Usage
 
 ```js
@@ -9,12 +15,12 @@ let Capella = require('capella-pics');
 
 capella = new Capella();
 
-//upload by URL
+// upload by URL
 capella.uploadFileByURL('https://capella.pics/public/app/capella-logo.png', function (resp) {
     console.log(resp);
 });
 
-//upload from local path
+// upload from local path
 capella.uploadFile('C:/Users/Capella/Desktop/capella-logo.png', function (resp) {
     console.log(resp);
 });
@@ -42,3 +48,7 @@ Callback argument description
    "url": <url>
 }
 ```
+
+## License
+
+MIT

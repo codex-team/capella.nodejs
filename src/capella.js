@@ -10,7 +10,6 @@ let fs = require('fs');
 class Capella {
     /**
      * Define endpoint URL for Capella uploader
-     *
      */
     constructor() {
         this.endpoint = 'https://capella.pics/upload';
