@@ -1,0 +1,25 @@
+{
+  "name": "capella-pics",
+  "version": "1.0.0",
+  "description": "Module for useful image uploading with capella.pics",
+  "main": "src/capella.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codex-team/capella.nodejs.git"
+  },
+  "keywords": [
+    "image-uploading",
+    "uploader",
+    "image-filters"
+  ],
+  "author": "CodeX (https://ifmo.su)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/codex-team/capella.nodejs/issues"
+  },
+  "homepage": "https://github.com/codex-team/capella.nodejs#readme",
+  "dependencies": {
+    "eslint": "^3.12.2",
+    "request": "^2.83.0"
+  }
+}
