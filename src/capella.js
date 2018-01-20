@@ -9,7 +9,7 @@ let fs = require('fs');
  */
 class Capella {
     /**
-     * Define endpoint URL fo Capella uploader
+     * Define endpoint URL for Capella uploader
      *
      */
     constructor() {
@@ -17,7 +17,7 @@ class Capella {
     }
 
     /**
-   * Get and parse answer from server
+   * Get and parse response from server
    *
    * @param {String} json - JSON string with the server response
    * @return {object|string} - parsed response or error message

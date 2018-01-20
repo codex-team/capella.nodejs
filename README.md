@@ -14,7 +14,7 @@ capella.uploadFileByURL('https://capella.pics/public/app/capella-logo.png', func
     console.log(resp);
 });
 
-//upload by local path
+//upload from local path
 capella.uploadFile('C:/Users/Capella/Desktop/capella-logo.png', function (resp) {
     console.log(resp);
 });
