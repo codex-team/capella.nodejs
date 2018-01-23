@@ -5,13 +5,13 @@ Image uploader to [Capella](https://github.com/codex-team/capella)
 ## Installation
 
 ```
-$ npm install capella-pics
+$ npm install @codexteam/capella-pics
 ```
 
 ## Usage
 
 ```js
-let Capella = require('capella-pics');
+let Capella = require('@codexteam/capella-pics');
 
 capella = new Capella();
 
@@ -51,4 +51,4 @@ Callback argument description
 
 ## License
 
-MIT
+[MIT](https://github.com/codex-team/capella.nodejs/blob/master/LICENSE)
