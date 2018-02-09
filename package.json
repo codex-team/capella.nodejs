@@ -1,6 +1,6 @@
 {
   "name": "@codexteam/capella-pics",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Module for useful image uploading with capella.pics",
   "main": "src/capella.js",
   "repository": {
