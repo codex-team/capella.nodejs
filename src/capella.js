@@ -7,8 +7,7 @@ let fs = require('fs');
  * @module Capella module. Upload file and return response from server
  * @copyright CodeX Team 2018
  */
-class Capella
-{
+class Capella {
     /**
      * Define endpoint URL for Capella uploader
      */
