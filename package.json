@@ -19,7 +19,9 @@
   },
   "homepage": "https://github.com/codex-team/capella.nodejs#readme",
   "dependencies": {
-    "eslint": "^3.12.2",
     "request": "^2.83.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.17.0"
   }
 }
