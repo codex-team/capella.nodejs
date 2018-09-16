@@ -49,6 +49,16 @@ Callback argument description
 }
 ```
 
+## Custom endpoint
+
+You can pass custom endpoint address to the constructor.
+
+```
+capella = new Capella({
+    endpoint: 'https://capella.pics/upload'
+});
+```
+
 ## License
 
 [MIT](https://github.com/codex-team/capella.nodejs/blob/master/LICENSE)
