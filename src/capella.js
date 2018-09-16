@@ -13,7 +13,7 @@ class Capella {
      *
      * @param {Object} configuration - dictionary with configuration params
      */
-    constructor(configuration={}) {
+    constructor(configuration = {}) {
         this.endpoint = configuration.endpoint || 'https://capella.pics/upload';
     }
 
