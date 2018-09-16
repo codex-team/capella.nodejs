@@ -10,6 +10,8 @@ let fs = require('fs');
 class Capella {
     /**
      * Define endpoint URL for Capella uploader
+     *
+     * @param {Object} configuration - dictionary with configuration params
      */
     constructor(configuration={}) {
         this.endpoint = configuration.endpoint || 'https://capella.pics/upload';
