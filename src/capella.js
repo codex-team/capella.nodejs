@@ -2,6 +2,11 @@ let request = require('request');
 let fs = require('fs');
 
 /**
+ * @typedef {Object} CapellaConfig
+ * @property {String} endpoint - Capella upload Url
+ */
+
+/**
  * Add link to the Capella repository
  *
  * @module Capella module. Upload file and return response from server
@@ -10,9 +15,11 @@ let fs = require('fs');
 class Capella {
     /**
      * Define endpoint URL for Capella uploader
+     *
+     * @param {CapellaConfig} configuration
      */
-    constructor() {
-        this.endpoint = 'https://capella.pics/upload';
+    constructor(configuration = {}) {
+        this.endpoint = configuration.endpoint || 'https://capella.pics/upload';
     }
 
     /**
