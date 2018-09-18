@@ -5,15 +5,15 @@ Image uploader to [Capella](https://github.com/codex-team/capella)
 ## Installation
 
 ```
-$ npm install @codexteam/capella-pics
+npm install @codexteam/capella-pics --save
 ```
 
 ## Usage
 
 ```js
-let Capella = require('@codexteam/capella-pics');
+const Capella = require('@codexteam/capella-pics');
 
-capella = new Capella();
+let capella = new Capella();
 
 // upload by URL
 capella.uploadFileByURL('https://capella.pics/public/app/capella-logo.png', function (resp) {
@@ -27,19 +27,24 @@ capella.uploadFile('C:/Users/Capella/Desktop/capella-logo.png', function (resp) 
 ```
 
 ## Response
+
 Return [Capella response](https://github.com/codex-team/capella#upload-api) object if everything is ok, otherwise returns Error message.
 
 ## Response format
+
 Callback argument description
 
 **On error**
+
 ```
 {
    "success": false,
    "message": <message>
 }
 ```
+
 **On success**
+
 ```
 {
    "success": true,
@@ -51,10 +56,10 @@ Callback argument description
 
 ## Custom endpoint
 
-You can pass custom endpoint address to the constructor.
+You can pass a custom endpoint address to the constructor.
 
 ```
-capella = new Capella({
+let capella = new Capella({
     endpoint: 'https://capella.pics/upload'
 });
 ```
