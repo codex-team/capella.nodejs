@@ -11,7 +11,8 @@ class Capella {
     /**
      * Define endpoint URL for Capella uploader
      *
-     * @param {Object} configuration - dictionary with configuration params
+     * @typedef {Object} configuration
+     * @property {String} endpoint - Capella upload Url
      */
     constructor(configuration = {}) {
         this.endpoint = configuration.endpoint || 'https://capella.pics/upload';
